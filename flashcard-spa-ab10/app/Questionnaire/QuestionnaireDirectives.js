@@ -13,17 +13,10 @@ angular.module('flashcard').directive('questionnaireElementAdvanced', function()
 		replace: true, // optionally
 		templateUrl: 'Questionnaire/QuestionnaireListElement.html',
 		link: function(scope, elem, attrs){
-			elem.bind('click', function(){
-				if(elem.hasClass('alert alert-warning')){
-					elem.removeClass('alert alert-warning');
-				}else{					
-					elem.addClass('alert alert-warning');
-				}
-			});
 			
 			elem.bind('mouseover', function(){
 				elem.css('cursor', 'pointer');
-				elem.css('background-color', 'yellow');
+				elem.css('background-color', '#F2F5A9');
 			});
 			
 			elem.bind('mouseout', function(){

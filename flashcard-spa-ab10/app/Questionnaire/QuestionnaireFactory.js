@@ -7,9 +7,14 @@ angular.module('flashcard')
 			           			];
 		
 		return{
-			create: function(str){
+			create: function(title,desc){
+				console.log(desc);
 				var id = questionnaires.length;
-				questionnaires.push( {id:id, title:'Q'+id, description: str} );
+				if(typeof desc == 'undefined'){
+					desc = title;
+					title = 'Q'+id;
+				}
+				questionnaires.push( {id:id, title:title, description: desc} );
 			},
 			
 			list: function(){
@@ -17,7 +22,7 @@ angular.module('flashcard')
 			},
 			
 			remove: function(id){
-				questionnaires.splice(id,1);
+				questionnaires.splice(id,1); // not 100% correct (after modifications may malfunction)
 			}
 		}
 	});
