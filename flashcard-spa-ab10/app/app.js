@@ -13,6 +13,10 @@ angular.module('flashcard')
 				controller: 'QuestionnarieController as ctrl',
 				templateUrl: 'Questionnaire/QuestionnaireCreate.html'
 			})
+			.when('/detail/:id', {
+				controller: 'QuestionnaireDetailController as ctrl',
+				templateUrl: 'Questionnaire/QuestionnaireDetail.html'
+			})
 			.otherwise({
 				redirectTo: '/list'
 			})

@@ -8,21 +8,22 @@ angular.module('flashcard').directive('questionnaireElement', function(){
 	};
 });
 
-angular.module('flashcard').directive('questionnaireElementAdvanced', function(){
-	return {
-		replace: true, // optionally
-		templateUrl: 'Questionnaire/QuestionnaireListElement.html',
-		link: function(scope, elem, attrs){
-			
-			elem.bind('mouseover', function(){
-				elem.css('cursor', 'pointer');
-				elem.css('background-color', '#F2F5A9');
-			});
-			
-			elem.bind('mouseout', function(){
-				elem.css('background-color', 'transparent');
-			});
-
-		}
-	};
-});
+angular.module('flashcard')
+	.directive('questionnaireElementAdvanced', [function(){
+		return {
+			replace: true, // optionally
+			templateUrl: 'Questionnaire/QuestionnaireListElement.html',
+			questionnaire: '=',
+			link: function(scope, elem, attrs){
+				elem.bind('mouseover', function(){
+					elem.css('cursor', 'pointer');
+					elem.css('background-color', '#F2F5A9');
+				});
+				
+				elem.bind('mouseout', function(){
+					elem.css('background-color', 'transparent');
+				});
+	
+			}
+		};
+	}]);

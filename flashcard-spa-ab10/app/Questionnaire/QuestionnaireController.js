@@ -30,4 +30,15 @@ angular.module('flashcard')
 		}
 		
 		this.cancel = this.close;
-	});
+	})
+	.controller('QuestionnaireDetailController', ['$location','QuestionnaireFactory', '$routeParams', function($location, QuestionnaireFactory, $routeParams){
+		 var card = QuestionnaireFactory.get($routeParams.id);
+		 this.title = card.title;
+		 this.description = card.description;
+		 
+		 this.updateFromFullscreen = function(){
+			 QuestionnaireFactory.update($routeParams.id, this.title, this.description);
+			 //$location.url('/');
+			 this.back();
+		 };
+	}]);
