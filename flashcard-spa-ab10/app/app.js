@@ -1,13 +1,9 @@
-angular.module('flashcard',[])
-	.controller('QuestionnarieController', function(){
-		this.questionnaires = [
-			{id:1, title: 'Q1', description: 'Lorem ipsum...'},
-			{id:2, title: 'Q2', description: 'Lorem ipsum...'},
-			{id:3, title: 'Q3', description: 'Lorem ipsum...'}
-			];
-		
-		this.save = function(str){
-			var id = this.questionnaires.length;
-			this.questionnaires.push( {id:id, title:'Q'+id, description: str} );
-		};
-	});
+// this calls have to be first, before other calls come to flashcard modules. It's define the module
+// so in index.html this file has to be include first before others
+angular.module('flashcard', []);
+
+angular.module('flashcard')
+	.controller('QuestionnarieController', ['QuestionnaireFactory', function(repo){		
+		this.questionnaires = repo.list();		
+		this.save = repo.create;
+	}]);

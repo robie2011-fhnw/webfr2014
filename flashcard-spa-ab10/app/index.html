@@ -12,16 +12,16 @@
                 <button class="btn btn-primary" ng-click="ctrl.save(newEntry)">New</button>
             </form>
             <hr/>      
-            <div ng-repeat="q in ctrl.questionnaires">
-                <dl>
-                    <dt>[{{q.id}}] {{q.title}}</dt>
-                    <dd>{{q.description}}</dd>   
-                </dl>
+            <div ng-repeat="questionnaire in ctrl.questionnaires">
+            	<div questionnaire-element></div>
             </div>
             <footer>&copy; 2014 The FHNW Team</footer>
         </div>
     </div>    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script src="app.js"></script> 
+    <script src="Questionnaire/QuestionnaireFactory.js"></script>
+    <script src="Questionnaire/QuestionnaireService.js"></script>
+    <script src="Questionnaire/QuestionnaireDirectives.js"></script>
   </body>
 </html>
